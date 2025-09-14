@@ -3,7 +3,7 @@ extends Node3D
 
 @export var mobscene : PackedScene
 
-@onready var gameoverscene = load("res://scene/GameOver.tscn").instantiate()
+@onready var gameoverscene = preload("res://scene/GameOver.tscn")
 @onready var scoreitem = preload("res://scene/ScoreUp.tscn")
 
 var score = 0
@@ -44,11 +44,10 @@ func _on_player_death() -> void:
 	$SpawnerTime.stop()
 	$ScoreUp.stop()
 	$RandomRok.stop()
-	$UI/CanvasLayer.hide()
+	$UI.queue_free()
 	$AudioStreamPlayer.stop()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	add_child(gameoverscene)
-	gameoverscene.setscore(score)
+	call_deferred("_show_gameover")
 
 func scoreup(inputscore:int):
 	score += inputscore
@@ -90,3 +89,8 @@ func _on_random_rok_timeout() -> void:
 	add_child(soundplayer)
 	await soundplayer.finished
 	soundplayer.queue_free()
+
+func _show_gameover() -> void:
+	var over = gameoverscene.instantiate()
+	add_child(over)
+	over.setscore(score)
