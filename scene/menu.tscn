@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd03xaigxyn1t"]
+
+[ext_resource type="Script" uid="uid://cewxx53ow2mf8" path="res://Script/menu.gd" id="1_e5g8k"]
+[ext_resource type="FontFile" uid="uid://dt1irhjriv3gx" path="res://asset/Font/BaiphaiThin.ttf" id="2_8hxod"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5g8k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 23.0
+offset_right = 57.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
+theme_override_font_sizes/font_size = 61
+text = "First 3d Game"
+
+[node name="Label3" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.0
+offset_top = 123.0
+offset_right = 210.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
+theme_override_font_sizes/font_size = 61
+text = "จำลองการระวังทรังส์ซัง"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -326.0
+offset_top = 223.0
+offset_right = 337.0
+offset_bottom = 291.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
+theme_override_font_sizes/font_size = 46
+text = "นายธนภูมิ แทนทุมมา 673380271-3"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 7.0
+offset_right = 110.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "Start
+"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

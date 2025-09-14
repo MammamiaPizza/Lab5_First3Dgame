@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dscaiyt60w7p6"]
+
+[ext_resource type="Script" uid="uid://bsiljie76tc81" path="res://Script/game_over.gd" id="1_0mfy4"]
+[ext_resource type="Texture2D" uid="uid://dt6ohhvwf76dx" path="res://asset/maxresdefault.jpg" id="2_tbok3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mfy4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Maxresdefault" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(455, 367)
+scale = Vector2(1.14417, 1.14417)
+texture = ExtResource("2_tbok3")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -45.5
+offset_right = 179.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 66
+text = "Game Over"
+
+[node name="PlayAgain" type="Button" parent="CanvasLayer"]
+offset_left = 263.0
+offset_top = 432.0
+offset_right = 540.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 51
+text = "Play Again!
+"
+
+[node name="Menu" type="Button" parent="CanvasLayer"]
+offset_left = 627.0
+offset_top = 436.0
+offset_right = 904.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 51
+text = "To Menu"
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 370.0
+offset_top = 100.0
+offset_right = 564.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 66
+text = "Score:"
+
+[node name="Score2" type="Label" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 61.0
+offset_right = 339.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.737193, 0.737193, 0.737193, 1)
+theme_override_font_sizes/font_size = 31
+text = "you're finally awake"
+
+[connection signal="pressed" from="CanvasLayer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu" to="." method="_on_menu_pressed"]
